@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Real3D
+.DS_Store
+.idea
+Real2D/settings.py
+cover/
+pic/
