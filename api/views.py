@@ -1,6 +1,8 @@
 import os
 
 from django.http import HttpResponse
+from rest_framework import viewsets
+from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -21,6 +23,18 @@ from .serializers import (
 from .models import Country, Prefecture, City, Series, Location, LocationImage, SeriesLocation, SeriesLocationImage
 
 from Real2D.settings import BASE_DIR
+
+
+class SeriesViewSet(viewsets.ModelViewSet):
+    queryset = Series.objects.all().order_by('name')
+    serializer_class = SeriesSerializer
+    http_method_names = ['get']
+
+
+class LocationViewSet(viewsets.ModelViewSet):
+    queryset = Location.objects.all().order_by('name')
+    serializer_class = LocationSerializer
+    http_method_names = ['get']
 
 
 def _get_locations_from_series(series_id):
@@ -77,13 +91,6 @@ def cities(request, prefecture_id):
 
 
 @api_view(['GET'])
-def series(request):
-    series_list = Series.objects.all().order_by('name')
-    serialized_series_list = SeriesSerializer(series_list, many=True)
-    return Response(serialized_series_list.data)
-
-
-@api_view(['GET'])
 def series_detail(request, series_id):
     try:
         series_item = Series.objects.get(id=series_id)
@@ -94,13 +101,6 @@ def series_detail(request, series_id):
     response_data = serialized_series_item.data
     response_data['locations'] = _get_locations_from_series(series_id)
     return Response(response_data)
-
-
-@api_view(['GET'])
-def locations(request):
-    location_list = Location.objects.all()
-    serialized_location_list = LocationSerializer(location_list, many=True)
-    return Response(serialized_location_list.data)
 
 
 @api_view(['GET'])

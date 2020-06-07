@@ -20,7 +20,7 @@ class CitySerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
 
 
-class SeriesSerializer(serializers.ModelSerializer):
+class SeriesSerializer(serializers.HyperlinkedModelSerializer):
     cover_image = serializers.ReadOnlyField(source='image_path')
 
     class Meta:
@@ -34,7 +34,7 @@ class SeriesImageSerializer(serializers.ModelSerializer):
         fields = ('image', )
 
 
-class LocationSerializer(serializers.ModelSerializer):
+class LocationSerializer(serializers.HyperlinkedModelSerializer):
     country = serializers.ReadOnlyField(source='country_name')
     prefecture = serializers.ReadOnlyField(source='prefecture_name')
     city = serializers.ReadOnlyField(source='city_name')
