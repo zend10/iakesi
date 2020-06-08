@@ -1,7 +1,11 @@
 import uuid
 
 from django.db import models
-from Real2D.settings import COVER_FOLDER, LOCATION_FOLDER, SERIES_FOLDER, COVER_API_PATH, LOCATION_API_PATH, SERIES_API_PATH
+
+from Real2D.settings import LOCATION_FOLDER, LOCATION_API_PATH
+
+
+__all__ = ['Country', 'Prefecture', 'City', 'Location', 'LocationImage']
 
 
 class Country(models.Model):
@@ -39,25 +43,6 @@ class City(models.Model):
     class Meta:
         verbose_name = "City"
         verbose_name_plural = "Cities"
-
-
-class Series(models.Model):
-    name = models.CharField(max_length=300)
-    image = models.ImageField(null=True, upload_to=COVER_FOLDER)
-    image_name = models.UUIDField(default=uuid.uuid4(), editable=False, unique=True)
-    description = models.TextField()
-    anilist_id = models.IntegerField()
-    last_modified = models.DateField(auto_now=True)
-
-    def image_path(self):
-        return f'{COVER_API_PATH}{self.image_name}'
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = "Series"
-        verbose_name_plural = "Series"
 
 
 class Location(models.Model):
@@ -100,34 +85,3 @@ class LocationImage(models.Model):
         verbose_name_plural = "Location Images"
 
 
-class SeriesLocation(models.Model):
-    """
-    Map series with location
-    """
-    series = models.ForeignKey(Series, on_delete=models.CASCADE)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    remarks = models.TextField(blank=True)
-
-    def __str__(self):
-        return f'{self.series} - {self.location}'
-
-    class Meta:
-        verbose_name = "Series Location"
-        verbose_name_plural = "Series Locations"
-
-
-class SeriesLocationImage(models.Model):
-    series_location = models.ForeignKey(SeriesLocation, on_delete=models.CASCADE)
-    image = models.ImageField(null=True, upload_to=SERIES_FOLDER)
-    image_name = models.UUIDField(default=uuid.uuid4(), editable=False, unique=True)
-    remarks = models.TextField(blank=True)
-
-    def image_path(self):
-        return f'{SERIES_API_PATH}{self.image_name}'
-
-    def __str__(self):
-        return f'{self.series_location} - {self.image_name}'
-
-    class Meta:
-        verbose_name = "Series Location Image"
-        verbose_name_plural = "Series Location Images"
