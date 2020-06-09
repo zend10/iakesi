@@ -1,4 +1,22 @@
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url(../res/SourceSansPro-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url(../res/SourceSansPro-Bold.ttf);
+    font-weight: bold;
+}
+
+html {
+    --color-lime: #CEF1AB;
+    --color-aqua: #20E3E5;
+    --color-deep-aqua: #2D6566;
+}
+
 body {
+    font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -24,11 +42,6 @@ nav ul {
 nav li {
     display: flex;
     list-style-type: none;
-    transition: 0.3s;
-}
-
-nav li:hover {
-    background-color: gray;
 }
 
 nav li a {
@@ -39,13 +52,17 @@ nav li a {
     color: black;
     padding-left: 1vw;
     padding-right: 1vw;
+    transition: 0.3s;
+    border-bottom: 1px solid white;
+}
+
+nav li a:hover {
+    color: var(--color-deep-aqua);
+    border-bottom: 1px solid var(--color-deep-aqua);
 }
 
 main {
-    margin-left: 10vw;
-    margin-right: 10vw;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+    margin: 2vh 10vw;
 }
 
 footer {

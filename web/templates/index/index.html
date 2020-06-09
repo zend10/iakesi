@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Real2D</title>
 
     {% load static %}
@@ -26,9 +27,26 @@
         </div>
         <section id="section-series">
             <h2>Popular Series</h2>
+            <ul>
+            {% for series in popular_series %}
+                <li>
+                    <a href="{% url 'series' series.id %}">
+                        <img src="{{ series.cover_image }}">
+                        <div class="overlay-background">
+                            <div class="overlay-text">{{ series.name }}</div>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
         </section>
         <section id="section-locations">
             <h2>Popular Locations</h2>
+            <ul>
+            {% for location in popular_location %}
+                <li><a href="{% url 'location' location.id %}"><img src="{{ location.location_images.0.location_image }}"></a></li>
+            {% endfor %}
+            </ul>
         </section>
     </main>
     <footer>
