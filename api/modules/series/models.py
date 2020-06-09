@@ -15,6 +15,7 @@ class Series(models.Model):
     description = models.TextField()
     anilist_id = models.IntegerField()
     last_modified = models.DateField(auto_now=True)
+    access_count = models.BigIntegerField(default=0)
 
     def image_path(self):
         return f'{COVER_API_PATH}{self.image_name}'

@@ -8,6 +8,7 @@ __all__ = [
     'PrefectureSerializer',
     'CitySerializer',
     'LocationSerializer',
+    'LocationAccessCountSerializer',
     'LocationImagePathSerializer',
     'LocationImageSerializer'
 ]
@@ -39,6 +40,12 @@ class LocationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Location
         fields = ('id', 'name', 'country', 'prefecture', 'city', 'remarks', 'latitude', 'longitude', 'last_modified')
+
+
+class LocationAccessCountSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Location
+        fields = ('id', 'access_count')
 
 
 class LocationImagePathSerializer(serializers.ModelSerializer):

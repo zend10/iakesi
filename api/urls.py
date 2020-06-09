@@ -15,12 +15,14 @@ urlpatterns = [
 
     path('series/<int:series_id>', series.series_detail),
     path('image/cover/<uuid:uuid>', series.cover_image),
+    path('popular/series', series.popular_series),
 
     path('country/', location.countries),
     path('prefecture/<int:country_id>', location.prefectures),
     path('city/<int:prefecture_id>', location.cities),
     path('location/<int:location_id>', location.location_detail),
     path('image/location/<uuid:uuid>', location.location_image),
+    path('popular/location', location.popular_locations),
 
     path('image/series/<uuid:uuid>', series_location.series_location_image),
 

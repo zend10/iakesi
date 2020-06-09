@@ -21,3 +21,8 @@ def series_detail(request, series_id):
 @api_view(['GET'])
 def cover_image(request, uuid):
     return HttpResponse(**get_cover_image(uuid))
+
+
+@api_view(['GET'])
+def popular_series(request):
+    return Response(**get_popular_series())

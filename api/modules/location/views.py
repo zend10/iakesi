@@ -36,3 +36,8 @@ def location_detail(request, location_id):
 @api_view(['GET'])
 def location_image(request, uuid):
     return HttpResponse(**get_location_image(uuid))
+
+
+@api_view(['GET'])
+def popular_locations(request):
+    return Response(**get_popular_locations())

@@ -1,0 +1,10 @@
+header {
+    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.banner-image {
+    width: 100%;
+    border-radius: 1vw;
+}

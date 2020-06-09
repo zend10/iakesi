@@ -5,6 +5,7 @@ from .models import *
 
 __all__ = [
     'SeriesSerializer',
+    'SeriesAccessCountSerializer',
     'SeriesImageSerializer'
 ]
 
@@ -15,6 +16,12 @@ class SeriesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Series
         fields = ('id', 'name', 'cover_image', 'description', 'anilist_id', 'last_modified')
+
+
+class SeriesAccessCountSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Series
+        fields = ('id', 'access_count')
 
 
 class SeriesImageSerializer(serializers.ModelSerializer):

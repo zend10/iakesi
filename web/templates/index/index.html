@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real2D</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-index.css' %}">
+</head>
+<body>
+    <header>
+{% comment %} Will be changed into Logo {% endcomment %}
+        <h1 class="app-logo">Real2D</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Series</a></li>
+                <li><a href="#">Locations</a></li>
+            </ul>
+        </nav>
+{% comment %} Add search bar / icon here {% endcomment %}
+    </header>
+    <main>
+        <div class="banner-container">
+            {% comment %} <img class="banner-image" src="{% static 'res/daikichiyama-observation-deck.jpg' %}" alt="Header image."> {% endcomment %}
+        </div>
+        <section id="section-series">
+            <h2>Popular Series</h2>
+        </section>
+        <section id="section-locations">
+            <h2>Popular Locations</h2>
+        </section>
+    </main>
+    <footer>
+        <p>2020 Real2D All rights reserved</p>
+    </footer>
+</body>
+</html>

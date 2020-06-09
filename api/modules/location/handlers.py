@@ -13,7 +13,8 @@ __all__ = [
     'get_prefectures',
     'get_cities',
     'get_location_detail',
-    'get_location_image'
+    'get_location_image',
+    'get_popular_locations'
 ]
 
 
@@ -45,10 +46,20 @@ def get_location_detail(location_id):
     except Location.DoesNotExist:
         return dict(status=404)
 
+    # handle update access count
+    temp_data = LocationAccessCountSerializer(location_item).data
+    temp_data['access_count'] = temp_data['access_count'] + 1
+    update_serializer = LocationAccessCountSerializer(location_item, data=temp_data)
+
+    if update_serializer.is_valid():
+        update_serializer.save()
+
+    # retrieve additional detail
     serialized_location_item = LocationSerializer(location_item)
     response_data = serialized_location_item.data
     response_data['location_images'] = get_location_images(location_id)
     response_data['series'] = get_series_from_location(location_id)
+
     return dict(data=response_data)
 
 
@@ -66,3 +77,16 @@ def get_location_image(uuid):
             return dict(content=f.read(), content_type="image/jpeg")
     except TypeError or IOError:
         return dict(status=404)
+
+
+def get_popular_locations():
+    location_list = Location.objects.all().order_by('-access_count')[:6]
+    serialized_location_list = LocationSerializer(location_list, many=True)
+
+    new_location_list = []
+
+    for location in serialized_location_list.data:
+        location['location_images'] = get_location_images(location['id'])
+        new_location_list.append(location)
+
+    return dict(data=new_location_list)

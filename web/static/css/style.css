@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+}
+
+header .app-logo {
+    margin: 0;
+    margin-right: auto;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+nav li {
+    display: flex;
+    list-style-type: none;
+    transition: 0.3s;
+}
+
+nav li:hover {
+    background-color: gray;
+}
+
+nav li a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    height: auto;
+    color: black;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+main {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+footer {
+    background-color: black;
+    width: 100%;
+    padding: 2vh 10vw;
+    color: white;
+}

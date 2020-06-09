@@ -54,6 +54,7 @@ class Location(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     last_modified = models.DateField(auto_now=True)
+    access_count = models.BigIntegerField(default=0)
 
     def country_name(self):
         return self.country.name
