@@ -23,7 +23,7 @@
     </header>
     <main>
         <div class="banner-container">
-            {% comment %} <img class="banner-image" src="{% static 'res/daikichiyama-observation-deck.jpg' %}" alt="Header image."> {% endcomment %}
+            <img class="banner-image" src="{% static 'res/dummy-banner.jpg' %}" alt="Header image.">
         </div>
         <section id="section-series">
             <h2>Popular Series</h2>
@@ -42,15 +42,30 @@
         </section>
         <section id="section-locations">
             <h2>Popular Locations</h2>
+            <div class="location-container">
+                <figure>
+                    <a id="highlight-url" href="{% url 'location' popular_locations.0.id %}"><img id="highlight-image" src="{{ popular_locations.0.location_images.0.location_image }}" alt="{{ popular_locations.0.name }}"></a>
+                    <figcaption>
+                        <h3 id="highlight-name">{{ popular_locations.0.name }}</h3>
+                        <p id="highlight-remarks">{{ popular_locations.0.remarks }}</p>
+                    </figcaption>
+                </figure>
+                <ul id="highlight-list">
+                {% for location in popular_locations %}
+                    <li>
+                        <img src="{{ location.location_images.0.location_image }}" alt="{{ location.name }}" data-remarks="{{ location.remarks }}">
+                        <div class="overlay-background"></div>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
             <ul>
-            {% for location in popular_location %}
-                <li><a href="{% url 'location' location.id %}"><img src="{{ location.location_images.0.location_image }}"></a></li>
-            {% endfor %}
             </ul>
         </section>
     </main>
     <footer>
         <p>2020 Real2D All rights reserved</p>
     </footer>
+    <script src="{% static 'js/script-index.js' %}"></script>
 </body>
 </html>

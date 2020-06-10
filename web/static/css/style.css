@@ -10,9 +10,10 @@
 }
 
 html {
-    --color-lime: #CEF1AB;
-    --color-aqua: #20E3E5;
-    --color-deep-aqua: #2D6566;
+    --color-feather: #77C9D4;
+    --color-marine: #57BC90;
+    --color-forest: #015249;
+    --color-sleek-grey: #EFEFEF;
 }
 
 body {
@@ -57,8 +58,8 @@ nav li a {
 }
 
 nav li a:hover {
-    color: var(--color-deep-aqua);
-    border-bottom: 1px solid var(--color-deep-aqua);
+    color: var(--color-feather);
+    border-bottom: 1px solid var(--color-feather);
 }
 
 main {
@@ -66,8 +67,10 @@ main {
 }
 
 footer {
-    background-color: black;
+    background-color: var(--color-sleek-grey);
     width: 100%;
+    margin-top: 20vh;
     padding: 2vh 10vw;
-    color: white;
+    color: black;
+    font-size: 0.8rem;
 }
