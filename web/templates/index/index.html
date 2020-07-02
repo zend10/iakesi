@@ -21,10 +21,13 @@
         </nav>
 {% comment %} Add search bar / icon here {% endcomment %}
     </header>
+
     <main>
+
         <div class="banner-container">
             <img class="banner-image" src="{% static 'res/dummy-banner.jpg' %}" alt="Header image.">
         </div>
+
         <section id="section-series">
             <h2>Popular Series</h2>
             <ul>
@@ -40,6 +43,7 @@
             {% endfor %}
             </ul>
         </section>
+
         <section id="section-locations">
             <h2>Popular Locations</h2>
             <div class="location-container">
@@ -53,7 +57,7 @@
                 <ul id="highlight-list">
                 {% for location in popular_locations %}
                     <li>
-                        <img src="{{ location.location_images.0.location_image }}" alt="{{ location.name }}" data-remarks="{{ location.remarks }}">
+                        <img src="{{ location.location_images.0.location_image }}" alt="{{ location.name }}" data-remarks="{{ location.remarks }}" data-url="{% url 'location' location.id %}">
                         <div class="overlay-background"></div>
                     </li>
                 {% endfor %}
@@ -62,10 +66,13 @@
             <ul>
             </ul>
         </section>
+
     </main>
+
     <footer>
         <p>2020 Real2D All rights reserved</p>
     </footer>
+
     <script src="{% static 'js/script-index.js' %}"></script>
 </body>
 </html>

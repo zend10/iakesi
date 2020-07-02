@@ -5,10 +5,6 @@ html {
     --color-sleek-grey: #EFEFEF;
 }
 
-body {
-    overflow-x: hidden;
-}
-
 header {
     margin-top: 10vh;
     margin-left: 10vw;
@@ -32,11 +28,6 @@ header {
 
 .header-fixed nav {
     margin-right: 10vw;
-}
-
-.banner-image {
-    width: 100%;
-    border-radius: 1vw;
 }
 
 section {
@@ -176,5 +167,8 @@ section {
     visibility: hidden;
 }
 
+#highlight-remarks {
+    white-space: pre-line;
+}
 
 

@@ -2,13 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Location</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Location - {{ data.name }}</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-location.css' %}">
 </head>
 <body>
-{% if data %}
-    <p>Location is {{ data.name }}</p>
-{% else %}
-    <p>Not found</p>
-{% endif %}
+    <header>
+{% comment %} Will be changed into Logo {% endcomment %}
+        <h1 class="app-logo"><a href="{% url 'index' %}">Real2D</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Series</a></li>
+                <li><a href="#">Locations</a></li>
+            </ul>
+        </nav>
+{% comment %} Add search bar / icon here {% endcomment %}
+    </header>
+    <main>
+        <div class="banner-container">
+            <img class="banner-image" src="{{ data.location_images.0.location_image }}" alt="Header image.">
+        </div>
+        <section id="section-info">
+            <h2>{{ data.name }}</h2>
+            <p id="info-country">{{ data.country }}, {{ data.prefecture }}, {{ data.city }}</p>
+            <p id="info-remarks">{{ data.remarks }}</p>
+        </section>
+        <section id="section-location">
+            <h3>Location</h3>
+            <iframe
+            id="location-map"
+            frameborder="0"
+            src="https://www.google.com/maps/embed/v1/search?key={{ apikey }}&center={{ data.latitude }},{{ data.longitude }}&q={{ data.name }}&zoom=15">
+            </iframe>
+        </section>
+        <section id="section-gallery">
+            <h3>Gallery</h3>
+            <ul>
+            {% for image in data.location_images %}
+                <li>
+                    <img src="{{ image.location_image }}">
+                </li>
+            {% endfor %}
+            </ul>
+        </section>
+        <section id="section-series">
+            <h3>Appears In</h3>
+            <ul>
+            {% for series in data.series %}
+                <li>
+                    <a href="{% url 'series' series.series.id %}">
+                        <img src="{{ series.series.cover_image }}">
+                        <div class="overlay-background">
+                            <div class="overlay-text">{{ series.series.name }}</div>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </section>
+    </main>
 </body>
 </html>

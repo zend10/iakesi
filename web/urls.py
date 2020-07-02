@@ -5,7 +5,7 @@ from web.views.series import views as series
 from web.views.location import views as location
 
 urlpatterns = [
-    path('', index.index),
+    path('', index.index, name='index'),
     path('series/<int:series_id>', series.detail, name='series'),
     path('location/<int:location_id>', location.detail, name='location')
 ]
