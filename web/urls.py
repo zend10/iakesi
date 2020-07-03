@@ -7,5 +7,7 @@ from web.views.location import views as location
 urlpatterns = [
     path('', index.index, name='index'),
     path('series/<int:series_id>', series.detail, name='series'),
-    path('location/<int:location_id>', location.detail, name='location')
+    path('series', series.lists, name='series-list'),
+    path('location/<int:location_id>', location.detail, name='location'),
+    path('location', location.lists, name='location-list')
 ]

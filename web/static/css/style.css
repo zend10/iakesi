@@ -75,6 +75,11 @@ nav li a:hover {
     border-bottom: 1px solid var(--color-feather);
 }
 
+.nav-selected a {
+    color: var(--color-marine);
+    border-bottom: 1px solid var(--color-marine);
+}
+
 .header-fixed {
     position: fixed;
     top: 0;
@@ -231,7 +236,7 @@ footer {
     overflow: hidden;
     opacity: 0;
     transition: 0.3s ease;
-    background-color: var(--color-feather);
+    background-color: var(--color-marine);
 }
 
 #section-series li:hover .overlay-background {

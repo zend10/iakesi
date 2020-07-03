@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Series</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-series.css' %}">
+</head>
+<body>
+<header>
+{% comment %} Will be changed into Logo {% endcomment %}
+        <h1 class="app-logo"><a href="{% url 'index' %}">Real2D</a></h1>
+        <nav>
+            <ul>
+                <li class="nav-selected"><a href="{% url 'series-list' %}">Series</a></li>
+                <li><a href="{% url 'location-list' %}">Locations</a></li>
+            </ul>
+        </nav>
+{% comment %} Add search bar / icon here {% endcomment %}
+    </header>
+
+    <main>
+        <h2>Series List</h2>
+
+        <section id="section-toc">
+            <ul>
+            {% for letter, series_list in data.items %}
+                <a href="#letter-{{ letter }}"><li>{{ letter }}</li></a>
+            {% endfor %}
+            </ul>
+        </section>
+
+        <section id="section-series-list">
+        {% for letter, series_list in data.items %}
+            <h3 id="letter-{{ letter }}">{{ letter }}</h3>
+            <ul>
+            {% for series in series_list %}
+                <a href="{% url 'series' series.id %}"><li>{{ series.name }}</li></a>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+        </section>
+    </main>
+
+    <footer>
+        <p>2020 Real2D All rights reserved</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

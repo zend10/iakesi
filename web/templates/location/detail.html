@@ -15,8 +15,8 @@
         <h1 class="app-logo"><a href="{% url 'index' %}">Real2D</a></h1>
         <nav>
             <ul>
-                <li><a href="#">Series</a></li>
-                <li><a href="#">Locations</a></li>
+                <li><a href="{% url 'series-list' %}">Series</a></li>
+                <li><a href="{% url 'location-list' %}">Locations</a></li>
             </ul>
         </nav>
 {% comment %} Add search bar / icon here {% endcomment %}

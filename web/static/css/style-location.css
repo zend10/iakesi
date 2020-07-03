@@ -41,3 +41,30 @@ section {
     cursor: pointer;
     display: block;
 }
+
+/* Series list */
+
+#section-location-list a {
+    text-decoration: none;
+    color: var(--color-forest);
+}
+
+#section-location-list .location-list {
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+}
+
+#section-location-list .location-item {
+    list-style-position: inside;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    padding: 1vh;
+    transition: 0.3s;
+}
+
+#section-location-list .location-item:hover {
+    border-bottom: 1px solid var(--color-feather);
+    color: var(--color-feather);
+}

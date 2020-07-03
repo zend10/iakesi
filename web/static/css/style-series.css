@@ -33,8 +33,9 @@ section {
 /* Locations */
 
 h4 a {
-    color: var(--color-marine);
+    color: var(--color-forest);
     text-decoration: none;
+    transition: 0.3s;
 }
 
 h4 a:hover {
@@ -72,3 +73,62 @@ h4 a:hover {
     cursor: pointer;
     display: block;
 }
+
+/* TOC */
+
+#section-toc ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+#section-toc a {
+    text-decoration: none;
+    color: var(--color-forest);
+}
+
+#section-toc li {
+    padding: 1vh;
+    border: 1px solid var(--color-feather);
+    border-radius: 1vw;
+    margin-right: 1vw;
+    margin-top: 1vh;
+    transition: 0.3s;
+    text-align: center;
+    width: 2vw;
+}
+
+#section-toc li:hover {
+    background-color: var(--color-feather);
+}
+
+
+/* Series list */
+
+#section-series-list a {
+    text-decoration: none;
+    color: var(--color-forest);
+}
+
+#section-series-list ul {
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+}
+
+#section-series-list li {
+    list-style-position: inside;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    padding: 1vh;
+    transition: 0.3s;
+}
+
+#section-series-list li:hover {
+    border-bottom: 1px solid var(--color-feather);
+    color: var(--color-feather);
+}
+
