@@ -11,15 +11,13 @@
 </head>
 <body>
     <header>
-{% comment %} Will be changed into Logo {% endcomment %}
-        <h1 class="app-logo"><a href="{% url 'index' %}">Real2D</a></h1>
+        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}"></a></h1>
         <nav>
             <ul>
                 <li><a href="{% url 'series-list' %}">Series</a></li>
                 <li><a href="{% url 'location-list' %}">Locations</a></li>
             </ul>
         </nav>
-{% comment %} Add search bar / icon here {% endcomment %}
     </header>
 
     <main>

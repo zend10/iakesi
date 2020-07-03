@@ -46,6 +46,12 @@ header .app-logo {
     padding-bottom: 2vh;
 }
 
+.app-logo img {
+    width: 5vw;
+    height: auto;
+    display: flex;
+}
+
 nav ul {
     display: flex;
     padding: 0;
