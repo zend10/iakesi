@@ -21,15 +21,18 @@
         </nav>
 {% comment %} Add search bar / icon here {% endcomment %}
     </header>
+
     <main>
         <div class="banner-container">
             <img class="banner-image" src="{{ data.location_images.0.location_image }}" alt="Header image.">
         </div>
+
         <section id="section-info">
             <h2>{{ data.name }}</h2>
             <p id="info-country">{{ data.country }}, {{ data.prefecture }}, {{ data.city }}</p>
             <p id="info-remarks">{{ data.remarks }}</p>
         </section>
+
         <section id="section-location">
             <h3>Location</h3>
             <iframe
@@ -38,16 +41,23 @@
             src="https://www.google.com/maps/embed/v1/search?key={{ apikey }}&center={{ data.latitude }},{{ data.longitude }}&q={{ data.name }}&zoom=15">
             </iframe>
         </section>
+
         <section id="section-gallery">
             <h3>Gallery</h3>
             <ul>
             {% for image in data.location_images %}
                 <li>
-                    <img src="{{ image.location_image }}">
+                    <img src="{{ image.location_image }}" alt="{{ data.name }}">
                 </li>
             {% endfor %}
             </ul>
+            <div id="modal-container">
+                <span id="modal-close">&times;</span>
+                <img id="modal-image">
+                <div id="modal-caption"></div>
+            </div>
         </section>
+        
         <section id="section-series">
             <h3>Appears In</h3>
             <ul>
@@ -64,5 +74,12 @@
             </ul>
         </section>
     </main>
+
+    <footer>
+        <p>2020 Real2D All rights reserved</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/script-location.js' %}"></script>
 </body>
 </html>

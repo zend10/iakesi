@@ -23,7 +23,6 @@
     </header>
 
     <main>
-
         <div class="banner-container">
             <img class="banner-image" src="{% static 'res/dummy-banner.jpg' %}" alt="Header image.">
         </div>
@@ -54,6 +53,7 @@
                         <p id="highlight-remarks">{{ popular_locations.0.remarks }}</p>
                     </figcaption>
                 </figure>
+
                 <ul id="highlight-list">
                 {% for location in popular_locations %}
                     <li>
@@ -63,16 +63,14 @@
                 {% endfor %}
                 </ul>
             </div>
-            <ul>
-            </ul>
         </section>
-
     </main>
 
     <footer>
         <p>2020 Real2D All rights reserved</p>
     </footer>
 
+    <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/script-index.js' %}"></script>
 </body>
 </html>

@@ -5,27 +5,17 @@ html {
     --color-sleek-grey: #EFEFEF;
 }
 
-/* Info */
-
-#section-info {
+section {
     margin-top: 5vh;
 }
+
+/* Info */
 
 #info-remarks {
     white-space: pre-line;
 }
 
-/* Location */
-
-#section-location {
-    margin-top: 5vh;
-}
-
 /* Gallery */
-
-#section-gallery {
-    margin-top: 5vh;
-}
 
 #section-gallery ul {
     display: flex;
@@ -48,71 +38,4 @@ html {
     border-radius: 1vw;
     cursor: pointer;
     display: block;
-}
-
-
-/* Series */
-
-#section-series {
-    margin-top: 5vh;
-}
-
-#section-series ul {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    margin-right: -1vw;
-}
-
-#section-series li {
-    list-style-type: none;
-    margin-right: 1vw;
-    justify-self: start;
-    max-width: 15%;
-    position: relative;
-}
-
-#section-series li img {
-    width: 100%;
-    height: auto;
-    border: 1px solid var(--color-forest);
-    border-radius: 1vw;
-    cursor: pointer;
-    display: block;
-}
-
-#section-series li .overlay-background {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    height: 0;
-    width: 100%;
-    border-bottom-left-radius: 1vw;
-    border-bottom-right-radius: 1vw;
-    border-left: 1px solid var(--color-forest);
-    border-right: 1px solid var(--color-forest);
-    overflow: hidden;
-    opacity: 0;
-    transition: 0.3s ease;
-    background-color: var(--color-feather);
-}
-
-#section-series li:hover .overlay-background {
-    height: 30%;
-    opacity: 0.8;
-    overflow: hidden;
-    border-bottom: 1px solid var(--color-forest);
-}
-
-#section-series li .overlay-text {
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 0.8rem;
 }
