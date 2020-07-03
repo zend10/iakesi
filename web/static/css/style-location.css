@@ -19,6 +19,7 @@ section {
 
 #section-gallery ul {
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0;
     margin-right: -1vw;
@@ -27,8 +28,9 @@ section {
 #section-gallery li {
     list-style-type: none;
     margin-right: 1vw;
+    margin-top: 1vh;
     justify-self: start;
-    max-width: 25%;
+    max-width: 23%;
 }
 
 #section-gallery li img {

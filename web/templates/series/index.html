@@ -2,13 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Series</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Series - {{ data.name }}</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-series.css' %}">
 </head>
 <body>
-{% if data %}
-    <p>Anime is {{ data.name }}</p>
-{% else %}
-    <p>Not found</p>
-{% endif %}
+<header>
+{% comment %} Will be changed into Logo {% endcomment %}
+        <h1 class="app-logo"><a href="{% url 'index' %}">Real2D</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Series</a></li>
+                <li><a href="#">Locations</a></li>
+            </ul>
+        </nav>
+{% comment %} Add search bar / icon here {% endcomment %}
+    </header>
+
+    <main>
+        <section id="section-info">
+            <img class="cover-image" src="{{ data.cover_image }}" alt="Cover image.">
+            <div class="info-description">
+                <h2>{{ data.name }}</h2>
+                <p>{{ data.description }}</p>
+            </div>
+        </section>
+        
+        <section id="section-locations">
+            <h3>Locations</h3>
+            <ul>
+            {% for location in data.locations %}
+                <li class="item-location">
+                    <h4><a href="{% url 'location' location.location.id %}">{{ location.location.name }}</a></h4>
+                    <ul class="list-image">
+                    {% for image in location.location.location_images %}
+                        <li class="item-image">
+                            <img src="{{ image.location_image }}" alt="{{ location.location.name }}">    
+                        </li>
+                    {% endfor %}
+                    </ul>
+                    <br>
+                    <ul class="list-image">
+                    {% for image in location.series_location_images %}
+                        <li class="item-image">
+                            <img src="{{ image.series_location_image }}" alt="{{ location.location.name }}">    
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+            </ul>
+            <div id="modal-container">
+                <span id="modal-close">&times;</span>
+                <img id="modal-image">
+                <div id="modal-caption"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>2020 Real2D All rights reserved</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/script-series.js' %}"></script>
 </body>
 </html>
