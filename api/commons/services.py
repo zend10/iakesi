@@ -29,7 +29,7 @@ def get_locations_from_series(series_id):
 
 
 def get_series_location_images(series_location_id):
-    image_list = SeriesLocationImage.objects.filter(id=series_location_id)
+    image_list = SeriesLocationImage.objects.filter(series_location_id=series_location_id)
     serialized_image_list = SeriesLocationImagePathSerializer(image_list, many=True)
     return serialized_image_list.data
 

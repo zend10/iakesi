@@ -38,7 +38,7 @@
                     <ul class="list-image">
                     {% for image in location.location.location_images %}
                         <li class="item-image">
-                            <img src="{{ image.location_image }}" alt="{{ location.location.name }}">    
+                            <img src="{{ image.location_image }}" alt="{{ image.remarks }}">    
                         </li>
                     {% endfor %}
                     </ul>
@@ -46,7 +46,7 @@
                     <ul class="list-image">
                     {% for image in location.series_location_images %}
                         <li class="item-image">
-                            <img src="{{ image.series_location_image }}" alt="{{ location.location.name }}">    
+                            <img src="{{ image.series_location_image }}" alt="{{ image.remarks }}">    
                         </li>
                     {% endfor %}
                     </ul>
