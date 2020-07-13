@@ -29,7 +29,7 @@ class SeriesLocation(models.Model):
 class SeriesLocationImage(models.Model):
     series_location = models.ForeignKey(SeriesLocation, on_delete=models.CASCADE)
     image = models.ImageField(null=True, upload_to=SERIES_FOLDER)
-    image_name = models.UUIDField(default=uuid.uuid4(), editable=False, unique=True)
+    image_name = models.UUIDField(unique=True)
     remarks = models.TextField(blank=True)
 
     def image_path(self):

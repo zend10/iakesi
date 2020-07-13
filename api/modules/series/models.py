@@ -11,7 +11,7 @@ __all__ = ['Series']
 class Series(models.Model):
     name = models.CharField(max_length=300)
     image = models.ImageField(null=True, upload_to=COVER_FOLDER)
-    image_name = models.UUIDField(default=uuid.uuid4(), editable=False, unique=True)
+    image_name = models.UUIDField(unique=True)
     description = models.TextField()
     anilist_id = models.IntegerField()
     last_modified = models.DateField(auto_now=True)

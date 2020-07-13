@@ -72,7 +72,7 @@ class Location(models.Model):
 class LocationImage(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     image = models.ImageField(null=True, upload_to=LOCATION_FOLDER)
-    image_name = models.UUIDField(default=uuid.uuid4(), editable=False, unique=True)
+    image_name = models.UUIDField(unique=True)
     remarks = models.TextField(blank=True)
 
     def image_path(self):
