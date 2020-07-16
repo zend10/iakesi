@@ -152,15 +152,13 @@ footer {
 #modal-image {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
+    width: 100%;
 }
 
 #modal-caption {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
+    max-width: 100%;
     text-align: center;
     color: white;
     margin-top: 2vh;
@@ -195,9 +193,9 @@ footer {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (min-width: 1024px) {
     #modal-image {
-        width: 100%;
+        width: 700px;
     }
 }
 
@@ -270,8 +268,8 @@ footer {
         width: 20vw;
     }
 
-    .banner-image {
-        margin-top: 20vw;
+    main {
+        margin-top: 22vw;
     }
 
     section {

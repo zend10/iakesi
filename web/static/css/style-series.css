@@ -132,3 +132,32 @@ h4 a:hover {
     color: var(--color-feather);
 }
 
+@media only screen and (max-width: 767px) {
+    #section-info { 
+        flex-direction: column;
+    }
+
+    .info-description {
+        width: auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #section-locations .item-image {
+        list-style-type: none;
+        margin-right: 2vw;
+        margin-top: 1vh;
+        justify-self: start;
+        max-width: 45%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .cover-image {
+        width: 50%;
+    }
+
+    .info-description {
+        width: 100%;
+    }
+}
