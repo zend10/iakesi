@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-series.css' %}">
 </head>
 <body>
-<header>
+    <header>
         <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}"></a></h1>
         <nav>
             <ul>
@@ -36,6 +36,13 @@
             <h3 id="letter-{{ letter }}">{{ letter }}</h3>
             <ul>
             {% for series in series_list %}
+                <a href="{% url 'series' series.id %}"><li>{{ series.name }}</li></a>
+                <a href="{% url 'series' series.id %}"><li>{{ series.name }}</li></a>
+                <a href="{% url 'series' series.id %}"><li>{{ series.name }}</li></a>
+                <a href="{% url 'series' series.id %}"><li>{{ series.name }}</li></a>
+                <a href="{% url 'series' series.id %}"><li>{{ series.name }}</li></a>
+                <a href="{% url 'series' series.id %}"><li>{{ series.name }}</li></a>
+                <a href="{% url 'series' series.id %}"><li>{{ series.name }}</li></a>
                 <a href="{% url 'series' series.id %}"><li>{{ series.name }}</li></a>
             {% endfor %}
             </ul>

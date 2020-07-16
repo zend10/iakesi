@@ -90,7 +90,7 @@ h4 a:hover {
 }
 
 #section-toc li {
-    padding: 1vh;
+    padding: 2vh;
     border: 1px solid var(--color-feather);
     border-radius: 1vw;
     margin-right: 1vw;
@@ -112,17 +112,7 @@ h4 a:hover {
     color: var(--color-forest);
 }
 
-#section-series-list ul {
-    -webkit-columns: 2;
-    -moz-columns: 2;
-    columns: 2;
-}
-
 #section-series-list li {
-    list-style-position: inside;
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
-    break-inside: avoid;
     padding: 1vh;
     transition: 0.3s;
 }
@@ -159,5 +149,24 @@ h4 a:hover {
 
     .info-description {
         width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #section-toc li {
+        padding: 1vh;
+    }
+
+    #section-series-list ul {
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        columns: 2;
+    }
+
+    #section-series-list li {
+        list-style-position: inside;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
     }
 }
