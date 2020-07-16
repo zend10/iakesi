@@ -22,7 +22,7 @@ section {
     flex-wrap: wrap;
     padding: 0;
     margin: 0;
-    margin-right: -1vw;
+    margin-right: -4vw;
 }
 
 #section-gallery li {
@@ -67,4 +67,16 @@ section {
 #section-location-list .location-item:hover {
     border-bottom: 1px solid var(--color-feather);
     color: var(--color-feather);
+}
+
+@media only screen and (max-width: 767px) {
+    #section-gallery ul {
+        margin-right: -6vw;
+    }
+
+    #section-gallery li {
+        margin-right: 2vw;
+        margin-top: 1vh;
+        max-width: 45%;
+    }
 }
