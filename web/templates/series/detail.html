@@ -11,7 +11,7 @@
 </head>
 <body>
 <header>
-        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}"></a></h1>
+        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}" alt="iakesi" loading="lazy"></a></h1>
         <nav>
             <ul>
                 <li><a href="{% url 'series-list' %}">Series</a></li>
@@ -22,7 +22,7 @@
 
     <main>
         <section id="section-info">
-            <img class="cover-image" src="{{ data.cover_image }}" alt="Cover image.">
+            <img class="cover-image" src="{{ data.cover_image }}" alt="data.name" loading="lazy">
             <div class="info-description">
                 <h2>{{ data.name }}</h2>
                 <p>{{ data.description }}</p>
@@ -38,7 +38,7 @@
                     <ul class="list-image">
                     {% for image in location.location.location_images %}
                         <li class="item-image">
-                            <img src="{{ image.location_image }}" alt="{{ image.remarks }}">    
+                            <img src="{{ image.location_image }}" alt="{{ image.remarks }}" loading="lazy">    
                         </li>
                     {% endfor %}
                     </ul>
@@ -46,7 +46,7 @@
                     <ul class="list-image">
                     {% for image in location.series_location_images %}
                         <li class="item-image">
-                            <img src="{{ image.series_location_image }}" alt="{{ image.remarks }}">    
+                            <img src="{{ image.series_location_image }}" alt="{{ image.remarks }}" loading="lazy">
                         </li>
                     {% endfor %}
                     </ul>
@@ -55,7 +55,7 @@
             </ul>
             <div id="modal-container">
                 <span id="modal-close">&times;</span>
-                <img id="modal-image">
+                <img id="modal-image" loading="lazy">
                 <div id="modal-caption"></div>
             </div>
         </section>

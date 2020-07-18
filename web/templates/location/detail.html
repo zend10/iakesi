@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}"></a></h1>
+        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}" alt="iakesi" loading="lazy"></a></h1>
         <nav>
             <ul>
                 <li><a href="{% url 'series-list' %}">Series</a></li>
@@ -22,7 +22,7 @@
 
     <main>
         <div class="banner-container">
-            <img class="banner-image" src="{{ data.location_images.0.location_image }}" alt="Header image.">
+            <img class="banner-image" src="{{ data.location_images.0.location_image }}" alt="data.name" loading="lazy">
         </div>
 
         <section>
@@ -45,13 +45,13 @@
             <ul>
             {% for image in data.location_images %}
                 <li>
-                    <img src="{{ image.location_image }}" alt="{{ image.remarks }}">
+                    <img src="{{ image.location_image }}" alt="{{ image.remarks }}" loading="lazy">
                 </li>
             {% endfor %}
             </ul>
             <div id="modal-container">
                 <span id="modal-close">&times;</span>
-                <img id="modal-image">
+                <img id="modal-image" loading="lazy">
                 <div id="modal-caption"></div>
             </div>
         </section>
@@ -62,7 +62,7 @@
             {% for series in data.series %}
                 <li>
                     <a href="{% url 'series' series.series.id %}">
-                        <img src="{{ series.series.cover_image }}">
+                        <img src="{{ series.series.cover_image }}" alt="{{ series.series.name }}" loading="lazy">
                         <div class="overlay-background">
                             <div class="overlay-text">{{ series.series.name }}</div>
                         </div>

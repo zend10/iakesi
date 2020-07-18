@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}"></a></h1>
+        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}" alt="iakesi" loading="lazy"></a></h1>
         <nav>
             <ul>
                 <li><a href="{% url 'series-list' %}">Series</a></li>
@@ -22,7 +22,7 @@
 
     <main>
         <div class="banner-container">
-            <img class="banner-image" src="{% static 'res/dummy-banner.jpg' %}" alt="Header image.">
+            <img class="banner-image" src="{% static 'res/dummy-banner.jpg' %}" alt="iakesi" loading="lazy">
         </div>
 
         <section id="section-series">
@@ -31,7 +31,7 @@
             {% for series in popular_series %}
                 <li>
                     <a href="{% url 'series' series.id %}">
-                        <img src="{{ series.cover_image }}">
+                        <img src="{{ series.cover_image }}" alt="{{ series.name }}" loading="lazy">
                         <div class="overlay-background">
                             <div class="overlay-text">{{ series.name }}</div>
                         </div>
@@ -45,7 +45,7 @@
             <h2>Popular Locations</h2>
             <div class="location-container">
                 <figure>
-                    <a id="highlight-url" href="{% url 'location' popular_locations.0.id %}"><img id="highlight-image" src="{{ popular_locations.0.location_images.0.location_image }}" alt="{{ popular_locations.0.name }}"></a>
+                    <a id="highlight-url" href="{% url 'location' popular_locations.0.id %}"><img id="highlight-image" src="{{ popular_locations.0.location_images.0.location_image }}" alt="{{ popular_locations.0.name }}" loading="lazy"></a>
                     <figcaption>
                         <h3 id="highlight-name">{{ popular_locations.0.name }}</h3>
                         <p id="highlight-remarks">{{ popular_locations.0.remarks }}</p>
@@ -55,7 +55,7 @@
                 <ul id="highlight-list">
                 {% for location in popular_locations %}
                     <li>
-                        <img src="{{ location.location_images.0.location_image }}" alt="{{ location.name }}" data-remarks="{{ location.remarks }}" data-url="{% url 'location' location.id %}">
+                        <img src="{{ location.location_images.0.location_image }}" alt="{{ location.name }}" data-remarks="{{ location.remarks }}" data-url="{% url 'location' location.id %}" loading="lazy">
                         <div class="overlay-background"></div>
                     </li>
                 {% endfor %}
