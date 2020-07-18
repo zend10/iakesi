@@ -131,6 +131,6 @@ dmypy.json
 # Real3D
 .DS_Store
 .idea
-Real2D/settings.py
+iakesi/settings.py
 cover/
 pic/

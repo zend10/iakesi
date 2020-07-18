@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from Real2D.settings import LOCATION_FOLDER, LOCATION_API_PATH
+from iakesi.settings import LOCATION_FOLDER, LOCATION_API_PATH
 
 
 __all__ = ['Country', 'Prefecture', 'City', 'Location', 'LocationImage']

@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Real2D.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'iakesi.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

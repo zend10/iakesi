@@ -3,7 +3,7 @@ import os
 from .models import *
 from .serializers import *
 
-from Real2D.settings import BASE_DIR
+from iakesi.settings import BASE_DIR
 from api.commons.services import get_location_images, get_series_from_location
 
 

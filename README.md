@@ -1,4 +1,4 @@
-# Real2D
+# iakesi
 A website to map real life anime locations to assist your next anime pilgrimage.
 
 <br>
@@ -11,4 +11,4 @@ A website to map real life anime locations to assist your next anime pilgrimage.
 - [Pillow](https://python-pillow.org/)
 
 ### Installation
-`Real2D/settings.py` is missing in this repository. You have to add your own. Follow the [documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/) to get started. 
+`iakesi/settings.py` is missing in this repository. You have to add your own. Follow the [documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/) to get started. 

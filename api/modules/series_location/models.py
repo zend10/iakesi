@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from Real2D.settings import SERIES_FOLDER, SERIES_API_PATH
+from iakesi.settings import SERIES_FOLDER, SERIES_API_PATH
 from api.modules.series import Series
 from api.modules.location import Location
 

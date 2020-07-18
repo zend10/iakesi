@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from Real2D.settings import COVER_FOLDER, COVER_API_PATH
+from iakesi.settings import COVER_FOLDER, COVER_API_PATH
 
 
 __all__ = ['Series']
