@@ -16,12 +16,13 @@ section {
 }
 
 .cover-image {
-    width: 100%;
+    width: 50%;
     border-radius: 1vw;
     border: 1px solid var(--color-forest);
 }
 
 .info-description {
+    width: 100%;
     padding-left: 2vw;
     padding-right: 2vw;
 }
@@ -127,6 +128,10 @@ h4 a:hover {
         flex-direction: column;
     }
 
+    .cover-image {
+        width: 100%;
+    }
+
     .info-description {
         width: auto;
         padding-left: 0;
@@ -139,16 +144,6 @@ h4 a:hover {
         margin-top: 1vh;
         justify-self: start;
         max-width: 45%;
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-    .cover-image {
-        width: 50%;
-    }
-
-    .info-description {
-        width: 100%;
     }
 }
 
