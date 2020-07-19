@@ -1,57 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block title_block %}
     <title>Locations</title>
+{% endblock title_block %}
 
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% block css_block %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-location.css' %}">
-</head>
-<body>
-<header>
-        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}" alt="iakesi" loading="lazy"></a></h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'series-list' %}">Series</a></li>
-                <li class="nav-selected"><a href="{% url 'location-list' %}">Locations</a></li>
-            </ul>
-        </nav>
-    </header>
+{% endblock css_block %}
 
-    <main>
-        <h2>Location List</h2>
-        <section id="section-location-list">
-        {% for country, prefecture_list in data.items %}
-            <h3>{{ country }}</h3>
-            <ul>
-                {% for prefecture, city_list in prefecture_list.items %}
-                <li>
-                    <h4>{{ prefecture }}</h4>
-                    <ul>
-                    {% for city, location_list in city_list.items %}
-                        <li>
-                            <h4>{{ city }}</h4>
-                            <ul class="location-list">
-                            {% for location in location_list %}
-                                <a href="{% url 'location' location.id %}"><li class="location-item">{{ location.name }}</li></a>
-                            {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
-                    </ul>
-                </li>
+{% block main_block %}
+    <h2>Location List</h2>
+    <section id="section-location-list">
+    {% for country, prefecture_list in data.items %}
+        <h3>{{ country }}</h3>
+        <ul>
+            {% for prefecture, city_list in prefecture_list.items %}
+            <li>
+                <h4>{{ prefecture }}</h4>
+                <ul>
+                {% for city, location_list in city_list.items %}
+                    <li>
+                        <h4>{{ city }}</h4>
+                        <ul class="location-list">
+                        {% for location in location_list %}
+                            <a href="{% url 'location' location.id %}"><li class="location-item">{{ location.name }}</li></a>
+                        {% endfor %}
+                        </ul>
+                    </li>
                 {% endfor %}
-            </ul>
-        {% endfor %}
-        </section>
-    </main>
-
-    <footer>
-        <p>2020 iakesi All rights reserved</p>
-    </footer>
-
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
-</html>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    </section>
+{% endblock main_block %}

@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block title_block %}
+    <title>iakesi</title>
+{% endblock title_block %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-index.css' %}">
+{% endblock css_block %}
+
+{% block main_block %}
+    <div class="banner-container">
+        <img class="banner-image" src="{% static 'res/dummy-banner.jpg' %}" alt="iakesi" loading="lazy">
+    </div>
+{% endblock main_block %}

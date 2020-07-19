@@ -6,8 +6,11 @@ from api.modules.location.handlers import get_location_detail, get_all_locations
 
 
 def detail(request, location_id):
-    context = get_location_detail(location_id)['data']
-    return render(request, 'location/detail.html', { 'data': context, 'apikey': GOOGLE_API_KEY })
+    context = get_location_detail(location_id)
+    if (context.get('status') == 404):
+        return render(request, 'base/404.html')
+    else:
+        return render(request, 'location/detail.html', { 'data': context['data'], 'apikey': GOOGLE_API_KEY })
 
 
 def lists(request):

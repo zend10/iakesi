@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    {% block title_block %}{% endblock title_block %}
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block css_block %}{% endblock css_block %}
+</head>
+<body>
+    <header>
+        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}" alt="iakesi" loading="lazy"></a></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'series-list' %}">Series</a></li>
+                <li><a href="{% url 'location-list' %}">Locations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block main_block %}{% endblock main_block %}
+    </main>
+    
+    <footer>
+        <p>2020 iakesi All rights reserved</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    {% block js_block %}{% endblock js_block %}
+</body>
+</html>

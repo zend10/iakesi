@@ -1,83 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block title_block %}
     <title>Location - {{ data.name }}</title>
+{% endblock title_block %}
 
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% block css_block %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-location.css' %}">
-</head>
-<body>
-    <header>
-        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}" alt="iakesi" loading="lazy"></a></h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'series-list' %}">Series</a></li>
-                <li><a href="{% url 'location-list' %}">Locations</a></li>
-            </ul>
-        </nav>
-    </header>
+{% endblock css_block %}
 
-    <main>
-        <div class="banner-container">
-            <img class="banner-image" src="{{ data.location_images.0.location_image }}" alt="data.name" loading="lazy">
+{% block main_block %}
+    <div class="banner-container">
+        <img class="banner-image" src="{{ data.location_images.0.location_image }}" alt="{{ data.name}} " loading="lazy">
+    </div>
+
+    <section>
+        <h2>{{ data.name }}</h2>
+        <p id="info-country">{{ data.country }}, {{ data.prefecture }}, {{ data.city }}</p>
+        <p id="info-remarks">{{ data.remarks }}</p>
+    </section>
+
+    <section>
+        <h3>Location</h3>
+        <iframe
+        id="location-map"
+        frameborder="0"
+        src="https://www.google.com/maps/embed/v1/place?key={{ apikey }}&q={{ data.latitude }},{{ data.longitude }}&zoom=15">
+        </iframe>
+    </section>
+
+    <section id="section-gallery">
+        <h3>Gallery</h3>
+        <ul>
+        {% for image in data.location_images %}
+            <li>
+                <img src="{{ image.location_image }}" alt="{{ image.remarks }}" loading="lazy">
+            </li>
+        {% endfor %}
+        </ul>
+        <div id="modal-container">
+            <span id="modal-close">&times;</span>
+            <img id="modal-image" loading="lazy">
+            <div id="modal-caption"></div>
         </div>
+    </section>
+    
+    <section id="section-series">
+        <h3>Appears In</h3>
+        <ul>
+        {% for series in data.series %}
+            <li>
+                <a href="{% url 'series' series.series.id %}">
+                    <img src="{{ series.series.cover_image }}" alt="{{ series.series.name }}" loading="lazy">
+                    <div class="overlay-background">
+                        <div class="overlay-text">{{ series.series.name }}</div>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </section>
+{% endblock main_block %}
 
-        <section>
-            <h2>{{ data.name }}</h2>
-            <p id="info-country">{{ data.country }}, {{ data.prefecture }}, {{ data.city }}</p>
-            <p id="info-remarks">{{ data.remarks }}</p>
-        </section>
-
-        <section>
-            <h3>Location</h3>
-            <iframe
-            id="location-map"
-            frameborder="0"
-            src="https://www.google.com/maps/embed/v1/place?key={{ apikey }}&q={{ data.latitude }},{{ data.longitude }}&zoom=15">
-            </iframe>
-        </section>
-
-        <section id="section-gallery">
-            <h3>Gallery</h3>
-            <ul>
-            {% for image in data.location_images %}
-                <li>
-                    <img src="{{ image.location_image }}" alt="{{ image.remarks }}" loading="lazy">
-                </li>
-            {% endfor %}
-            </ul>
-            <div id="modal-container">
-                <span id="modal-close">&times;</span>
-                <img id="modal-image" loading="lazy">
-                <div id="modal-caption"></div>
-            </div>
-        </section>
-        
-        <section id="section-series">
-            <h3>Appears In</h3>
-            <ul>
-            {% for series in data.series %}
-                <li>
-                    <a href="{% url 'series' series.series.id %}">
-                        <img src="{{ series.series.cover_image }}" alt="{{ series.series.name }}" loading="lazy">
-                        <div class="overlay-background">
-                            <div class="overlay-text">{{ series.series.name }}</div>
-                        </div>
-                    </a>
-                </li>
-            {% endfor %}
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>2020 iakesi All rights reserved</p>
-    </footer>
-
-    <script src="{% static 'js/script.js' %}"></script>
+{% block js_block %}
     <script src="{% static 'js/script-location.js' %}"></script>
-</body>
-</html>
+{% endblock js_block %}

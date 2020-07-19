@@ -1,74 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block title_block %}
     <title>iakesi</title>
+{% endblock title_block %}
 
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% block css_block %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-index.css' %}">
-</head>
-<body>
-    <header>
-        <h1 class="app-logo"><a href="{% url 'index' %}"><img src="{% static 'res/logo.png' %}" alt="iakesi" loading="lazy"></a></h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'series-list' %}">Series</a></li>
-                <li><a href="{% url 'location-list' %}">Locations</a></li>
-            </ul>
-        </nav>
-    </header>
+{% endblock css_block %}
 
-    <main>
-        <div class="banner-container">
-            <img class="banner-image" src="{% static 'res/dummy-banner.jpg' %}" alt="iakesi" loading="lazy">
-        </div>
+{% block main_block %}
+    <div class="banner-container">
+        <img class="banner-image" src="{% static 'res/dummy-banner.jpg' %}" alt="iakesi" loading="lazy">
+    </div>
 
-        <section id="section-series">
-            <h2>Popular Series</h2>
-            <ul>
-            {% for series in popular_series %}
+    <section id="section-series">
+        <h2>Popular Series</h2>
+        <ul>
+        {% for series in popular_series %}
+            <li>
+                <a href="{% url 'series' series.id %}">
+                    <img src="{{ series.cover_image }}" alt="{{ series.name }}" loading="lazy">
+                    <div class="overlay-background">
+                        <div class="overlay-text">{{ series.name }}</div>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </section>
+
+    <section id="section-locations">
+        <h2>Popular Locations</h2>
+        <div class="location-container">
+            <figure>
+                <a id="highlight-url" href="{% url 'location' popular_locations.0.id %}"><img id="highlight-image" src="{{ popular_locations.0.location_images.0.location_image }}" alt="{{ popular_locations.0.name }}" loading="lazy"></a>
+                <figcaption>
+                    <h3 id="highlight-name">{{ popular_locations.0.name }}</h3>
+                    <p id="highlight-remarks">{{ popular_locations.0.remarks }}</p>
+                </figcaption>
+            </figure>
+
+            <ul id="highlight-list">
+            {% for location in popular_locations %}
                 <li>
-                    <a href="{% url 'series' series.id %}">
-                        <img src="{{ series.cover_image }}" alt="{{ series.name }}" loading="lazy">
-                        <div class="overlay-background">
-                            <div class="overlay-text">{{ series.name }}</div>
-                        </div>
-                    </a>
+                    <img src="{{ location.location_images.0.location_image }}" alt="{{ location.name }}" data-remarks="{{ location.remarks }}" data-url="{% url 'location' location.id %}" loading="lazy">
+                    <div class="overlay-background"></div>
                 </li>
             {% endfor %}
             </ul>
-        </section>
+        </div>
+    </section>
+{% endblock main_block %}
 
-        <section id="section-locations">
-            <h2>Popular Locations</h2>
-            <div class="location-container">
-                <figure>
-                    <a id="highlight-url" href="{% url 'location' popular_locations.0.id %}"><img id="highlight-image" src="{{ popular_locations.0.location_images.0.location_image }}" alt="{{ popular_locations.0.name }}" loading="lazy"></a>
-                    <figcaption>
-                        <h3 id="highlight-name">{{ popular_locations.0.name }}</h3>
-                        <p id="highlight-remarks">{{ popular_locations.0.remarks }}</p>
-                    </figcaption>
-                </figure>
-
-                <ul id="highlight-list">
-                {% for location in popular_locations %}
-                    <li>
-                        <img src="{{ location.location_images.0.location_image }}" alt="{{ location.name }}" data-remarks="{{ location.remarks }}" data-url="{% url 'location' location.id %}" loading="lazy">
-                        <div class="overlay-background"></div>
-                    </li>
-                {% endfor %}
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>2020 iakesi All rights reserved</p>
-    </footer>
-
-    <script src="{% static 'js/script.js' %}"></script>
+{% block js_block %}
     <script src="{% static 'js/script-index.js' %}"></script>
-</body>
-</html>
+{% endblock js_block %}
