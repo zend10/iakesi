@@ -7,7 +7,7 @@ locationList.forEach(element => {
     element.onclick = function() {
         modalContainer.style.display = "block"
         modalImage.src = this.src
-        modalCaption.innerHTML = this.alt
+        modalCaption.innerHTML = this.getAttribute("data-remarks")
     }
 })
 

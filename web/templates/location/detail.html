@@ -12,7 +12,7 @@
 
 {% block main_block %}
     <div class="banner-container">
-        <img class="banner-image" src="{{ data.location_images.0.location_image }}" alt="{{ data.name}} " loading="lazy">
+        <img class="banner-image" src="{{ data.location_images.0.location_image }}" alt="{{ data.name }} " loading="lazy">
     </div>
 
     <section>
@@ -35,7 +35,7 @@
         <ul>
         {% for image in data.location_images %}
             <li>
-                <img src="{{ image.location_image }}" alt="{{ image.remarks }}" loading="lazy">
+                <img src="{{ image.location_image }}" alt="{{ data.name }}" data-remarks="{{ image.remarks }}" loading="lazy">
             </li>
         {% endfor %}
         </ul>
