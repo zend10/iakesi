@@ -7,6 +7,7 @@ from web.views.location import views as location
 
 urlpatterns = [
     path('', index.index, name='index'),
+    path('privacy', base.privacy, name='privacy'),
     path('submission', base.submission, name='submission'),
     path('contact', base.contact, name='contact'),
     path('about', base.about, name='about'),
