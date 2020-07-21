@@ -9,13 +9,13 @@ from api.modules.series_location import (
 
 
 def get_location_images(location_id):
-    image_list = LocationImage.objects.filter(location=location_id)
+    image_list = LocationImage.objects.filter(location=location_id).order_by('id')
     serialized_image_list = LocationImagePathSerializer(image_list, many=True)
     return serialized_image_list.data
 
 
 def get_locations_from_series(series_id):
-    series_location_list = SeriesLocation.objects.filter(series=series_id).select_related()
+    series_location_list = SeriesLocation.objects.filter(series=series_id).select_related().order_by('location')
     serialized_series_location_list = SeriesLocationSerializer(series_location_list, many=True)
 
     new_series_location_list = []
@@ -29,12 +29,12 @@ def get_locations_from_series(series_id):
 
 
 def get_series_location_images(series_location_id):
-    image_list = SeriesLocationImage.objects.filter(series_location_id=series_location_id)
+    image_list = SeriesLocationImage.objects.filter(series_location_id=series_location_id).order_by('id')
     serialized_image_list = SeriesLocationImagePathSerializer(image_list, many=True)
     return serialized_image_list.data
 
 
 def get_series_from_location(location_id):
-    series_list = SeriesLocation.objects.filter(location=location_id).select_related()
+    series_list = SeriesLocation.objects.filter(location=location_id).select_related().order_by('series')
     serialized_series_list = LocationSeriesSerializer(series_list, many=True)
     return serialized_series_list.data
