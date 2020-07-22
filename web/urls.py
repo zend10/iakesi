@@ -1,4 +1,5 @@
 from django.urls import include, path
+from django.views.generic.base import TemplateView
 
 from web.views.base import views as base
 from web.views.index import views as index
@@ -7,6 +8,7 @@ from web.views.location import views as location
 
 urlpatterns = [
     path('', index.index, name='index'),
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('privacy', base.privacy, name='privacy'),
     path('submission', base.submission, name='submission'),
     path('contact', base.contact, name='contact'),
