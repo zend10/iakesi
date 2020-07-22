@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from django.utils.text import slugify
 
 from iakesi.settings import COVER_FOLDER, COVER_API_PATH
 
@@ -19,6 +20,9 @@ class Series(models.Model):
 
     def image_path(self):
         return f'{COVER_API_PATH}{self.image_name}'
+
+    def slug(self):
+        return slugify(self.name)
 
     def __str__(self):
         return self.name

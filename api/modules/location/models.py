@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from django.utils.text import slugify
 
 from iakesi.settings import LOCATION_FOLDER, LOCATION_API_PATH
 
@@ -64,6 +65,9 @@ class Location(models.Model):
 
     def city_name(self):
         return self.city.name
+
+    def slug(self):
+        return slugify(self.name)
 
     def __str__(self):
         return self.name

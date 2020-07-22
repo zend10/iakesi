@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from api.modules.series.handlers import get_series_detail, get_all_series
 
 
-def detail(request, series_id):
+def detail(request, series_id, slug=None):
     context = get_series_detail(series_id)
     if (context.get('status') == 404):
         return render(request, 'base/404.html')

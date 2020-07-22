@@ -9,7 +9,7 @@
     <meta property="og:title" content="{{ data.name }}">
     <meta property="og:description" content="{{ data.remarks }}">
     <meta property="og:image" content="{{ data.location_images.0.location_image }}">
-    <meta property="og:url" content="{% url 'location' data.id %}">
+    <meta property="og:url" content="{% url 'location' data.id data.slug %}">
     <meta name="twitter:card" content="summary_large_image">
 
     <meta property="og:site_name" content="iakesi">
@@ -61,7 +61,7 @@
         <ul>
         {% for series in data.series %}
             <li>
-                <a href="{% url 'series' series.series.id %}">
+                <a href="{% url 'series' series.series.id series.series.slug %}">
                     <img src="{{ series.series.cover_image }}" alt="{{ series.series.name }}" loading="lazy">
                     <div class="overlay-background">
                         <div class="overlay-text">{{ series.series.name }}</div>

@@ -5,7 +5,7 @@ from iakesi.settings import GOOGLE_API_KEY
 from api.modules.location.handlers import get_location_detail, get_all_locations
 
 
-def detail(request, location_id):
+def detail(request, location_id, slug=None):
     context = get_location_detail(location_id)
     if (context.get('status') == 404):
         return render(request, 'base/404.html')

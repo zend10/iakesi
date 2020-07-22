@@ -36,7 +36,7 @@
         <h3 id="letter-{{ letter }}">{{ letter }}</h3>
         <ul>
         {% for series in series_list %}
-            <a href="{% url 'series' series.id %}"><li>{{ series.name }}</li></a>
+            <a href="{% url 'series' series.id series.slug %}"><li>{{ series.name }}</li></a>
         {% endfor %}
         </ul>
     {% endfor %}

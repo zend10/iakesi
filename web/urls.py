@@ -11,8 +11,10 @@ urlpatterns = [
     path('submission', base.submission, name='submission'),
     path('contact', base.contact, name='contact'),
     path('about', base.about, name='about'),
-    path('series/<int:series_id>', series.detail, name='series'),
-    path('series', series.lists, name='series-list'),
-    path('location/<int:location_id>', location.detail, name='location'),
-    path('location', location.lists, name='location-list')
+    path('series/<int:series_id>/', series.detail, name='series'),
+    path('series/<int:series_id>/<slug:slug>', series.detail, name='series'),
+    path('series/', series.lists, name='series-list'),
+    path('location/<int:location_id>/', location.detail, name='location'),
+    path('location/<int:location_id>/<slug:slug>', location.detail, name='location'),
+    path('location/', location.lists, name='location-list')
 ]

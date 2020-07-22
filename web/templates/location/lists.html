@@ -35,7 +35,7 @@
                         <h4>{{ city }}</h4>
                         <ul class="location-list">
                         {% for location in location_list %}
-                            <a href="{% url 'location' location.id %}"><li class="location-item">{{ location.name }}</li></a>
+                            <a href="{% url 'location' location.id location.slug %}"><li class="location-item">{{ location.name }}</li></a>
                         {% endfor %}
                         </ul>
                     </li>
