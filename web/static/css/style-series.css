@@ -116,6 +116,7 @@ h4 a:hover {
 #section-series-list li {
     padding: 1vh;
     transition: 0.3s;
+    border-bottom: 1px solid white;
 }
 
 #section-series-list li:hover {

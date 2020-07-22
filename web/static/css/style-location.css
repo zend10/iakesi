@@ -52,6 +52,7 @@ section {
 #section-location-list .location-item {
     padding: 1vh;
     transition: 0.3s;
+    border-bottom: 1px solid white;
 }
 
 #section-location-list .location-item:hover {

@@ -12,6 +12,6 @@
 
 {% block main_block %}
     <div class="banner-container">
-        <img class="banner-image" src="{% static 'res/404.jpg' %}" alt="404" loading="lazy">
+        <a href="{% url 'index' %}"><img class="banner-image" src="{% static 'res/404.jpg' %}" alt="404" loading="lazy"></a>
     </div>
 {% endblock main_block %}
