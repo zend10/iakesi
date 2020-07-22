@@ -5,6 +5,15 @@
 {% block title_block %}
     <title>iakesi</title>
     <meta name="description" content="iakesi helps mapping anime real life anime locations to assist your next anime pilgrimage. Explore the locations in Japan, England, Singapore, and many more.">
+
+    <meta property="og:title" content="iakesi">
+    <meta property="og:description" content="iakesi helps mapping anime real life anime locations to assist your next anime pilgrimage. Explore the locations in Japan, England, Singapore, and many more.">
+    <meta property="og:image" content="{% static 'res/favicon.ico' %}">
+    <meta property="og:url" content="{% url 'index' %}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta property="og:site_name" content="iakesi">
+    <meta name="twitter:image:alt" content="iakesi logo">
 {% endblock title_block %}
 
 {% block css_block %}
