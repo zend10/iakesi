@@ -1,7 +1,5 @@
-# iakesi
+# [iakesi](https://www.iakesi.net)
 A website to map real life anime locations to assist your next anime pilgrimage.
-
-<br>
 
 ### Dependencies
 - [Python 3.7](https://www.python.org/)
