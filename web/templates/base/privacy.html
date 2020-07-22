@@ -4,8 +4,16 @@
 
 {% block title_block %}
     <title>iakesi - Privacy</title>
+    <meta name="description" content="iakesi helps mapping anime real life anime locations to assist your next anime pilgrimage. Explore the locations in Japan, England, Singapore, and many more.">
+
     <meta property="og:title" content="iakesi - Privacy">
+    <meta property="og:description" content="iakesi helps mapping anime real life anime locations to assist your next anime pilgrimage. Explore the locations in Japan, England, Singapore, and many more.">
+    <meta property="og:image" content="{% static 'res/logo.png' %}">
     <meta property="og:url" content="{% url 'privacy' %}">
+    <meta name="twitter:card" content="summary">
+
+    <meta property="og:site_name" content="iakesi">
+    <meta name="twitter:image:alt" content="iakesi logo">
 {% endblock title_block %}
 
 {% block main_block %}
