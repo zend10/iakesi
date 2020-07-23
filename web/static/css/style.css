@@ -112,9 +112,46 @@ nav li a:hover {
 
 /* Banner Image */
 
+.banner-container {
+    position: relative;
+}
+
 .banner-image {
+    position: relative;
     width: 100%;
     border-radius: 1vw;
+}
+
+.banner-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15vh 20vw;
+    width: 40%;
+}
+
+.banner-text {
+    color: var(--color-feather);
+    width: 100%;
+    margin-top: 3px;
+    font-size: 1.2rem;
+}
+ 
+.banner-button {
+    margin-top: 5vh;
+    background-color: transparent;
+    border: 1px solid var(--color-marine);
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    padding: 1vh 1vw;
+    color: var(--color-marine);
+    transition: 0.3s;
+}
+
+.banner-button:hover {
+    cursor: pointer;
+    background-color: var(--color-marine);
+    color: var(--color-sleek-grey);
 }
 
 /* Footer */
@@ -279,7 +316,7 @@ footer a {
     }
 
     main {
-        margin-top: 22vw;
+        margin-top: 13vh;
     }
 
     section {
@@ -302,3 +339,54 @@ footer a {
         border-bottom: 1px solid var(--color-forest);
     }
 }
+
+@media only screen and (max-width: 619px) {
+    .banner-info {
+        margin: 3vh 20vw;
+        width: 50%;
+    }
+
+    .banner-text {
+        font-size: 0.5rem;
+    }
+
+    .banner-button {
+        font-size: 0.5rem;
+        margin-top: 1vh;
+        padding: 0.8vh 2vw;
+    }
+}
+
+@media only screen and (min-width: 620px) and (max-width: 768px) {
+    .banner-info {
+        margin: 7vh 20vw;
+        width: 40%;
+    }
+
+    .banner-text {
+        font-size: 0.8rem;
+    }
+
+    .banner-button {
+        font-size: 0.8rem;
+        margin-top: 1.5vh;
+        padding: 1vh 1vw;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .banner-info {
+        margin: 7vh 20vw;
+        width: 40%;
+    }
+
+    .banner-text {
+        font-size: 0.8rem;
+    }
+
+    .banner-button {
+        font-size: 0.8rem;
+        margin-top: 2vh;
+        padding: 1vh 1vw;
+    }
+} 

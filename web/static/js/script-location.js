@@ -16,3 +16,7 @@ let modalClose = document.getElementById("modal-close")
 modalClose.onclick = function() {
     modalContainer.style.display = "none"
 }
+
+modalImage.onclick = function() {
+    modalContainer.style.display = "none"
+}

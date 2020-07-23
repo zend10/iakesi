@@ -22,7 +22,12 @@
 
 {% block main_block %}
     <div class="banner-container">
-        <a href="{% url 'location-list' %}"><img class="banner-image" src="{% static 'res/banner.jpg' %}" alt="iakesi" loading="lazy"></a>
+        <img class="banner-image" src="{% static 'res/banner.jpg' %}" alt="iakesi" loading="lazy">
+        <div class="banner-info">
+            <img class="banner-logo" src="{% static 'res/logo-line.svg' %}" alt="iakesi" loading="lazy">
+            <div class="banner-text">Mapping real life anime locations to assist your next anime pilgrimage</div>
+            <a href="{% url 'location-list' %}"><button type="button" class="banner-button">Explore Locations</button></a>
+        </div>
     </div>
 
     <section id="section-series">
