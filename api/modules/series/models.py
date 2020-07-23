@@ -11,7 +11,7 @@ __all__ = ['Series']
 
 class Series(models.Model):
     name = models.CharField(max_length=300)
-    alt_name = models.CharField(max_length=300, blank=True)
+    alt_name = models.CharField(max_length=300, blank=True, null=True)
     image = models.ImageField(null=True, upload_to=COVER_FOLDER)
     image_name = models.UUIDField(unique=True)
     description = models.TextField(blank=True)
