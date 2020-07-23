@@ -48,7 +48,7 @@ class City(models.Model):
 
 class Location(models.Model):
     name = models.CharField(max_length=300)
-    alt_name = models.CharField(max_length=300, null=True)
+    alt_name = models.CharField(max_length=300, blank=True)
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
     prefecture = models.ForeignKey(Prefecture, on_delete=models.SET_NULL, null=True)
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
