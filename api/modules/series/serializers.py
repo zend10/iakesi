@@ -15,7 +15,7 @@ class SeriesSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Series
-        fields = ('id', 'name', 'cover_image', 'description', 'anilist_id', 'last_modified', 'slug')
+        fields = ('id', 'name', 'alt_name', 'cover_image', 'description', 'source', 'anilist_id', 'last_modified', 'slug')
 
 
 class SeriesAccessCountSerializer(serializers.HyperlinkedModelSerializer):

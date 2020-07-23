@@ -48,10 +48,12 @@ class City(models.Model):
 
 class Location(models.Model):
     name = models.CharField(max_length=300)
+    alt_name = models.CharField(max_length=300, null=True)
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
     prefecture = models.ForeignKey(Prefecture, on_delete=models.SET_NULL, null=True)
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
     remarks = models.TextField(blank=True)
+    source = models.TextField(blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
     last_modified = models.DateField(auto_now=True)

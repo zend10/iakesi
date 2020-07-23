@@ -39,7 +39,7 @@ class LocationSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Location
-        fields = ('id', 'name', 'country', 'prefecture', 'city', 'remarks', 'latitude', 'longitude', 'last_modified', 'slug')
+        fields = ('id', 'name', 'alt_name', 'country', 'prefecture', 'city', 'remarks', 'source', 'latitude', 'longitude', 'last_modified', 'slug')
 
 
 class LocationAccessCountSerializer(serializers.HyperlinkedModelSerializer):
