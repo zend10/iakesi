@@ -11,8 +11,12 @@ section {
 
 /* Info */
 
-#info-remarks {
+.info-description p {
     white-space: pre-line;
+}
+
+.info-altname {
+    margin-top: -20px;
 }
 
 /* Gallery */

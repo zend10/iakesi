@@ -53,6 +53,11 @@
                 <a id="highlight-url" href="{% url 'location' popular_locations.0.id popular_locations.0.slug %}"><img id="highlight-image" src="{{ popular_locations.0.location_images.0.location_image }}" alt="{{ popular_locations.0.name }}" loading="lazy"></a>
                 <figcaption>
                     <h3 id="highlight-name">{{ popular_locations.0.name }}</h3>
+                    <p id="highlight-altname">
+                        {% if popular_locations.0.alt_name %}
+                            {{ popular_locations.0.alt_name }}
+                        {% endif %}
+                    </p>
                     <p id="highlight-remarks">{{ popular_locations.0.remarks }}</p>
                 </figcaption>
             </figure>
@@ -60,7 +65,7 @@
             <ul id="highlight-list">
             {% for location in popular_locations %}
                 <li>
-                    <img src="{{ location.location_images.0.location_image }}" alt="{{ location.name }}" data-remarks="{{ location.remarks }}" data-url="{% url 'location' location.id location.slug %}" loading="lazy">
+                    <img src="{{ location.location_images.0.location_image }}" alt="{{ location.name }}" data-altname="{{ location.alt_name }}" data-remarks="{{ location.remarks }}" data-url="{% url 'location' location.id location.slug %}" loading="lazy">
                     <div class="overlay-background"></div>
                 </li>
             {% endfor %}

@@ -25,7 +25,13 @@
         <img class="cover-image" src="{{ data.cover_image }}" alt="{{ data.name }}" loading="lazy">
         <div class="info-description">
             <h2>{{ data.name }}</h2>
+            {% if data.alt_name %}
+                <p class="info-altname">{{ data.alt_name }}</p>
+            {% endif %}
             <p>{{ data.description }}</p>
+            {% if data.source %}
+                <p>(Source: {{ data.source }})</p>
+            {% endif %}
         </div>
     </section>
 

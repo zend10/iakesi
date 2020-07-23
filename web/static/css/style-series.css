@@ -31,6 +31,10 @@ section {
     white-space: pre-line;
 }
 
+.info-altname {
+    margin-top: -20px;
+}
+
 /* Locations */
 
 h4 a {

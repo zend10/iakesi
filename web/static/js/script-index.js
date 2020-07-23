@@ -4,6 +4,7 @@ let locationOverlayList = document.querySelectorAll("#highlight-list li .overlay
 let highlightUrl = document.getElementById("highlight-url")
 let highlightImage = document.getElementById("highlight-image")
 let highlightName = document.getElementById("highlight-name")
+let highlightAltName = document.getElementById("highlight-altname")
 let highlightRemarks = document.getElementById("highlight-remarks")
 
 locationOverlayList[0].style.visibility = 'visible'
@@ -17,12 +18,14 @@ locationList.forEach(element => {
         let url = this.getAttribute("data-url")
         let name = this.alt
         let image = this.src
+        let altName = this.getAttribute("data-altname")
         let remarks = this.getAttribute("data-remarks")
     
         highlightUrl.href = url
         highlightImage.src = image
         highlightImage.alt = name
         highlightName.innerText = name
+        highlightAltName.innerText = altName == 'None' ? '' : altName
         highlightRemarks.innerText = remarks
     }
 });

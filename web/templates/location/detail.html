@@ -25,10 +25,16 @@
         <img class="banner-image" src="{{ data.location_images.0.location_image }}" alt="{{ data.name }} " loading="lazy">
     </div>
 
-    <section>
+    <section class="info-description">
         <h2>{{ data.name }}</h2>
-        <p id="info-country">{{ data.country }}, {{ data.prefecture }}, {{ data.city }}</p>
-        <p id="info-remarks">{{ data.remarks }}</p>
+        {% if data.alt_name %}
+            <p class="info-altname">{{ data.alt_name }}</p>
+        {% endif %}
+        <p>{{ data.country }}, {{ data.prefecture }}, {{ data.city }}</p>
+        <p>{{ data.remarks }}</p>
+        {% if data.source %}
+            <p>(Source: {{ data.source }})</p>
+        {% endif %}
     </section>
 
     <section>
