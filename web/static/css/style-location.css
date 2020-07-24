@@ -11,6 +11,14 @@ section {
 
 /* Info */
 
+.info-description {
+    color: white;
+    background-color: var(--color-marine);
+    background-image: linear-gradient(to right, var(--color-feather), var(--color-marine));
+    border-radius: 1vw;
+    padding: 2vh 2vw;
+}
+
 .info-description p {
     white-space: pre-line;
 }
@@ -65,6 +73,10 @@ section {
 }
 
 @media only screen and (max-width: 767px) {
+    .info-description {
+        padding: 2vh 4vw;
+    }
+    
     #section-gallery ul {
         margin-right: -6vw;
     }

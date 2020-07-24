@@ -13,6 +13,10 @@ section {
 
 #section-info {
     display: flex;
+    color: white;
+    background-color: var(--color-marine);
+    background-image: linear-gradient(to right, var(--color-feather), var(--color-marine));
+    border-radius: 1vw;
 }
 
 .cover-image {
@@ -131,6 +135,8 @@ h4 a:hover {
 @media only screen and (max-width: 767px) {
     #section-info { 
         flex-direction: column;
+        background-color: white;
+        background-image: none;
     }
 
     .cover-image {
@@ -141,6 +147,12 @@ h4 a:hover {
         width: auto;
         padding-left: 0;
         padding-right: 0;
+        color: white;
+        background-color: var(--color-marine);
+        background-image: linear-gradient(to right, var(--color-feather), var(--color-marine));
+        border-radius: 1vw;
+        padding: 2vh 4vw;
+        margin-top: 5vh;
     }
 
     #section-locations .item-image {
