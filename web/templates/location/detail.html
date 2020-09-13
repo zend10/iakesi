@@ -5,13 +5,11 @@
 {% block title_block %}
     <title>Location - {{ data.name }}</title>
     <meta name="description" content={{ data.remarks }}>
-
     <meta property="og:title" content="{{ data.name }}">
     <meta property="og:description" content="{{ data.remarks }}">
     <meta property="og:image" content="{{ data.location_images.0.location_image }}">
     <meta property="og:url" content="{% url 'location' data.id data.slug %}">
     <meta name="twitter:card" content="summary_large_image">
-
     <meta property="og:site_name" content="iakesi">
     <meta name="twitter:image:alt" content="{{ data.name }}">
 {% endblock title_block %}

@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     
+    <title>iakesi - Mapping Real Life Anime Locations</title>
+    <meta name="description" content="iakesi helps mapping anime real life anime locations to assist your next anime pilgrimage. Explore the locations in Japan, England, Singapore, and many more.">
+
+    <meta property="og:title" content="iakesi">
+    <meta property="og:description" content="iakesi helps mapping anime real life anime locations to assist your next anime pilgrimage. Explore the locations in Japan, England, Singapore, and many more.">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:site_name" content="iakesi">
+    <meta name="twitter:image:alt" content="iakesi logo">
+
     {% block title_block %}{% endblock title_block %}
 
     {% load static %}
-
+    <meta property="og:image" content="{% static 'res/logo.png' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'res/favicon.ico' %}"/>
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     
     {% block css_block %}{% endblock css_block %}

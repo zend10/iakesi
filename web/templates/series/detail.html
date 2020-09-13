@@ -5,13 +5,11 @@
 {% block title_block %}
     <title>Series - {{ data.name }}</title>
     <meta name="description" content={{ data.description }}>
-
     <meta property="og:title" content="{{ data.name }}">
     <meta property="og:description" content="{{ data.description }}">
     <meta property="og:image" content="{{ data.cover_image }}">
     <meta property="og:url" content="{% url 'series' data.id data.slug %}">
     <meta name="twitter:card" content="summary">
-
     <meta property="og:site_name" content="iakesi">
     <meta name="twitter:image:alt" content="{{ data.name }}">
 {% endblock title_block %}
